@@ -1,0 +1,16 @@
+body {
+  background-color: #e5e5f7;
+  background-image: linear-gradient(#454761 1px, transparent 1px),
+    linear-gradient(to right, #454761 1px, #e5e5f7 1px);
+  background-size: 20px 20px;
+}
+
+h1 {
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 350px;
+}
