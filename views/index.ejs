@@ -18,25 +18,196 @@
     </div>
 
     <div class="container d-flex align-middle justify-content-center">
-      <form action="/getJoke" method="post" class="p-lg-4 border rounded shadow">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label fw-bold"
-            >Input your name</label
+      <form
+        action="/getJoke"
+        method="post"
+        class="p-lg-4 border w-75 rounded shadow bg-secondary bg-gradient"
+      >
+        <h4>Categories</h4>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="categoryProgramming"
+            name="categories"
+            value="Programming"
+          />
+          <label class="form-check-label" for="categoryProgramming"
+            >Programming</label
           >
-          <input type="email" class="form-control" id="exampleInputEmail1" name="userName" />
         </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="categoryMisc"
+            name="categories"
+            value="Misc"
+          />
+          <label class="form-check-label" for="categoryMisc">Misc</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="categoryDark"
+            name="categories"
+            value="Dark"
+          />
+          <label class="form-check-label" for="categoryDark">Dark</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="categoryPun"
+            name="categories"
+            value="Pun"
+          />
+          <label class="form-check-label" for="categoryPun">Pun</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="categorySpooky"
+            name="categories"
+            value="Spooky"
+          />
+          <label class="form-check-label" for="categorySpooky">Spooky</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="categoryChristmas"
+            name="categories"
+            value="Christmas"
+          />
+          <label class="form-check-label" for="categoryChristmas"
+            >Christmas</label
+          >
+        </div>
+
+        <h4 class="mt-3">How Dark?</h4>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flagNsfw"
+            name="flag"
+            value="nsfw"
+          />
+          <label class="form-check-label" for="flagNsfw">NSFW</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flagReligious"
+            name="flag"
+            value="religious"
+          />
+          <label class="form-check-label" for="flagReligious">Religious</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flagPolitical"
+            name="flag"
+            value="political"
+          />
+          <label class="form-check-label" for="flagPolitical">Political</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flagRacist"
+            name="flag"
+            value="racist"
+          />
+          <label class="form-check-label" for="flagRacist">Racist</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flagSexist"
+            name="flag"
+            value="sexist"
+          />
+          <label class="form-check-label" for="flagSexist">Sexist</label>
+        </div>
+
+        <div class="form-check form-check-inline mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="flagExplicit"
+            name="flag"
+            value="explicit"
+          />
+          <label class="form-check-label" for="flagExplicit">Explicit</label>
+        </div>
+
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label fw-bold"
-            >Password</label
+          <label for="keywords" class="form-label fw-bold"
+            >The joke must contain with: (optional)</label
           >
           <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
+            type="text"
+            class="form-control h-25"
+            id="keywords"
+            name="keywords"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button
+          type="submit"
+          class="btn btn-dark bg-secondary bg-gradient"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+        >
+          Generate Joke
+        </button>
       </form>
+    </div>
+
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <% if (locals.setup && locals.delivery) { %>
+            <p><%= setup %></p>
+            <p><%= delivery %></p>
+            <% } %>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
