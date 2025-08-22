@@ -29,7 +29,10 @@ app.post("/getJoke", async (req, res) => {
     const response = await axios.get(final);
     const data = response.data;
 
-    res.render("index.ejs", { setup: data.setup, delivery: data.delivery });
+    res.render("index.ejs", {
+      setup: `<p>${data.setup}</p>`,
+      delivery: `<p>${data.delivery}</p>`,
+    });
   } catch (error) {
     console.error(error.message);
   }

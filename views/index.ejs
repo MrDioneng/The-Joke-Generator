@@ -183,31 +183,16 @@
     </div>
 
     <div
-      class="modal fade"
-      id="myModal"
-      tabindex="-1"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
+      class="container d-row align-items-center justify-content-center mt-5 p-lg-4 border w-50 rounded shadow bg-secondary bg-gradient"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <% if (locals.setup && locals.delivery) { %>
-            <p><%= setup %></p>
-            <p><%= delivery %></p>
-            <% } %>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
+      <% if (setup) { %>
+      <div class="d-row gap-3">
+        <!-- flex container for horizontal layout -->
+        <%- setup %> <%- delivery %>
       </div>
+      <% } else { %>
+      <p>Waiting for the joke.....</p>
+      <% } %>
     </div>
 
     <script
